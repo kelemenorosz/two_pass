@@ -1,0 +1,6 @@
+*exe
+cbuild/
+/source/DirectXTex/
+/source/DirectX-Headers/
+*.cso
+*.sublime*
