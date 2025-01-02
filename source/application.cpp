@@ -80,7 +80,7 @@ Application* Application::Get() {
 
 void Application::Run() {
 
-	m_game = std::make_shared<Game>();
+	m_game = std::make_shared<TwoPassRender>();
 	m_game->LoadContent();
 
 	TCHAR buffer[500];
