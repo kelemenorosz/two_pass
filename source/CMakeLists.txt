@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.20)
 
 add_executable(
 	main WIN32
@@ -12,7 +12,7 @@ add_executable(
 	twoPassRender.cpp
 	utils.cpp
 	)
-add_definitions(-DUNICODE, -D_UNICODE)
+add_definitions(-DUNICODE)
 set_property(TARGET main PROPERTY CXX_STANDARD 17)
 target_include_directories(main PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inc)
 target_include_directories(main PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/DirectX-Headers)
@@ -53,9 +53,9 @@ endforeach(FILE)
 
 add_dependencies(main shaders)
 
-install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E copy \${CMAKE_BINARY_DIR}/ComputeShader.cso ../)")
-install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E copy \${CMAKE_BINARY_DIR}/PixelShader.cso ../)")
-install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E copy \${CMAKE_BINARY_DIR}/TwoPassPixelShader.cso ../)")
-install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E copy \${CMAKE_BINARY_DIR}/TwoPassPixelTextureShader.cso ../)")
-install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E copy \${CMAKE_BINARY_DIR}/TwoPassVertexShader.cso ../)")
-install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E copy \${CMAKE_BINARY_DIR}/VertexShader.cso ../)")
+install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E copy \${CMAKE_BINARY_DIR}/ComputeShader.cso \"${CMAKE_SOURCE_DIR}/\")")
+install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E copy \${CMAKE_BINARY_DIR}/PixelShader.cso \"${CMAKE_SOURCE_DIR}/\")")
+install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E copy \${CMAKE_BINARY_DIR}/TwoPassPixelShader.cso \"${CMAKE_SOURCE_DIR}/\")")
+install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E copy \${CMAKE_BINARY_DIR}/TwoPassPixelTextureShader.cso \"${CMAKE_SOURCE_DIR}/\")")
+install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E copy \${CMAKE_BINARY_DIR}/TwoPassVertexShader.cso \"${CMAKE_SOURCE_DIR}/\")")
+install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E copy \${CMAKE_BINARY_DIR}/VertexShader.cso \"${CMAKE_SOURCE_DIR}/\")")
